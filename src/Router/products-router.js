@@ -32,7 +32,7 @@ router.get("/:pid", async (req, res) => {
 
     res.send({
       status: "200 ok",
-      message: producto ? producto : "no existe producto seleccionado",
+      message: producto ? producto : "no existe el producto",
     });
   } catch (err) {
     res.status(err.statusCode).send(` ${err}`);
@@ -53,7 +53,7 @@ router.post("/", async (req, res) => {
    
     res.json({
       status: "200 ok",
-      message: "El producto se ha actualizado ok ",
+      message: "El producto se ha actualizado",
     });
   } catch (err) {
     res.status(err.statusCode).send(` ${err}`);
@@ -66,7 +66,7 @@ router.delete("/:pid", async (req, res) => {
 
     res.send({
       status: "200 ok",
-      message: producto ? producto : "no existe producto seleccionado",
+      message: producto ? producto : "no existe el producto",
     });
   } catch (err) {
     res.status(err.statusCode).send(` ${err}`);
@@ -88,7 +88,7 @@ router.put("/:pid", async (req, res) => {
     
     const mensaje = result
       ? "El producto ha sido actualizado"
-      : "No se ha encontrado producto";
+      : "No se ha encontrado el producto";
 
     res.json({ status: "200 ok", mensaje: mensaje });
   } catch (err) {

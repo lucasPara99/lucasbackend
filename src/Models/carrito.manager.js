@@ -23,7 +23,6 @@ class CarritoManager {
       let data = await utils.readFile(this.path);
       return data?.length > 0 ? data : [];
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -32,7 +31,7 @@ class CarritoManager {
     const carrito = this.carritos.find((el) => el.id === id);
 
     if (!carrito || carrito === undefined) {
-      let error = new Error("debe ingresar un id de carrito existente");
+      let error = new Error("Id inexistente");
       error.statusCode = 400;
       throw error;
     }
@@ -54,7 +53,7 @@ class CarritoManager {
     let carrito = await this.getCarritosById(id);
 
     if (!carrito) {
-      let error = new Error("no existe carrito");
+      let error = new Error("carrito inexistente");
       error.statusCode = 400;
       throw error;
     }
